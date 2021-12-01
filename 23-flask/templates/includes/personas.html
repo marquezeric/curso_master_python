@@ -1,0 +1,11 @@
+<h3>Listado de personas</h3>
+    {{personas}}
+    <br>
+<h3>Recorrido por un for</h3>
+    <ul>
+        {% for persona in personas %}
+            <li>
+                {{loop.index}} - {{persona}}
+            </li>
+        {% endfor %}
+    </ul>

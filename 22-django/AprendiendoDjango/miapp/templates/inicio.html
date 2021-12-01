@@ -1,0 +1,42 @@
+{%extends 'layout.html'%}
+
+{%block title%} {{title}} {%endblock%}
+
+{%block content%}
+
+
+<!--Comentario en HTML-->
+    {% comment %}
+        <h1>Hola linea comentada</h1>
+    {% endcomment %}
+
+<h1 class="title">{{title}}</h1>
+
+<p>{{mi_variable}}</p>
+
+{% if nombre and nombre == 'Eric Márquez 2'%}
+    
+    <p>{{nombre}}</p>
+
+{% else %}
+
+    <strong>El nombre no existe</strong>
+
+{%endif%}
+
+<h3>Listado de lenguajes de programación</h3>
+<ul>
+{% for lenguaje in lenguajes %}  <!--Bucle for-->
+    <li>
+        {{forloop.counter}}. {{lenguaje}} <!--forloop.last, forloop.first, forloop.counter, forloop.revcounter-->
+    </li>
+{% empty %}  <!--Función empty-->
+    <p>No Hay Lenguajes Que Mostrar</p>
+
+{% endfor %}
+</ul>
+
+
+{% include 'fecha-actual.html' with saludo="Hola Mundo desde plantilla "%}
+
+{%endblock%}

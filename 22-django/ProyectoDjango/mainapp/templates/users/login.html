@@ -1,0 +1,32 @@
+<!--Formulario login de usarios-->
+
+{% extends 'layouts/layout.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+    <h1>{{title}}</h1>
+    
+    <!--Mensaje solamente para los usuarios que se han registrado con exito-->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-warning">
+                {{message}}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {{register_form.errors}}
+
+    <form method="POST" action="">
+        {% csrf_token %} <!--Siempre cargar para protección de datos dentro de un formulario-->
+        <label for="username">Nombre de usuario</label>      
+        <input type="text" name="username" />
+
+        <label for="password">Contraseña</label>
+        <input type="password" name="password" />
+        
+        <input type="submit" value="Login"/>
+
+    </form>
+{% endblock %}

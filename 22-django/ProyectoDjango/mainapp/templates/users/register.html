@@ -1,0 +1,33 @@
+<!--Formulario proporcionado por Django-->
+
+{% extends 'layouts/layout.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+    <h1>{{title}}</h1>
+    
+    {{register_form.errors}}
+
+    <form method="POST" action="">
+        {% csrf_token %} <!--Siempre cargar para protección de datos dentro de un formulario-->
+        
+        {% comment %}
+            {{register_form.as_p}}
+        {% endcomment %}
+        
+        <!--Se puede porner campo por campo pero sería mas detallado el acomodar los campos-->
+        <!--Se mostrarán los campos a través del uso de la función for-->
+
+        {% for field in register_form %}
+            <label>{{field.label}}</label>
+            {{field}}
+        {% endfor %}
+
+        
+        
+        
+        <input type="submit" value="Registrarse"/>
+
+    </form>
+{% endblock %}

@@ -1,0 +1,271 @@
+/*Estilos generales*/
+
+/*---- Tomamos el asterisco para que a todos los elementos de nuestro layout le aplique los estilos----*/
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family:Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+.box p, .box h2, .box h3, .box ul{
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.box ul, .box ol{
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.clearfix{
+    clear: both;
+    float: none;
+}
+
+/*************Estilos del body************/
+body{
+    background-color: #f2f2f2;
+}
+
+/**********Estilos de la cabecera*************/
+header{
+    width: 1212px;
+    height: 140px;
+    background-color: #0033a1;
+    margin: 0 auto;
+}
+/***********Estilos del Logotipo*************/
+#logotipo{
+    width: 35%;
+    height: 130px;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+
+#logotipo img{
+    display: block;
+    width: 180px;
+    float: left;
+    margin-top: 5px;
+}
+
+#logotipo h1{
+    display: block;
+    float: left;
+    margin-top: 35px;
+    margin-left: 20px;
+    letter-spacing: 2px;
+    font-weight: lighter;
+    color: #dad9d7
+}
+
+/**************Estilos Barra Menú***********/
+
+nav{
+    width: 1250px;
+    height: 40px;
+    margin: 0 auto;
+    background-color: #0a2240 ;
+    border: 1px solid #fcfcfd;
+    box-shadow: 0px 22px 22px gray;
+    font-size: 15px;
+}
+
+nav ul{
+    list-style: none;
+    text-decoration: none;
+}
+
+nav ul li{
+    line-height: 40px;
+    float: left;
+}
+
+nav ul li a{
+    display: block;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+}
+
+nav ul li a:hover{
+    background-color: #0033a1;
+    box-shadow: 0px 0px 5px #dad9d7;
+}
+
+/***************Estilos Efecto 3D encabezado**********/
+
+.barra{
+    width: 1250px;
+    margin: 0 auto;
+    
+}
+
+.esquina-izquierda{
+    display: block;
+    border-left: 20px solid transparent;
+    border-top: 10px solid #0a2240;
+    float:left;
+}
+
+.esquina-derecha{
+    display: block;
+    border-right: 20px solid transparent;
+    border-top: 10px solid #0a2240;
+    float:right;
+}
+
+.relleno-barra{
+    display: block;
+    width: 1210px;
+    height: 10px;
+    background: #0a2240;
+    float:left;
+}
+
+/********Estilos Contenido Central*********/
+
+#content{
+    width: 1212px;
+    min-height: 930px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    margin-top: 40px;
+}
+
+.box{
+    background: white;
+    width:95%;
+    min-height: 930px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    margin: 0 auto;
+}
+
+/*******Estilos del formulario*******/
+.box form{
+    width: 40%;
+}
+
+.box form input,
+.box form label{
+    display:block;
+    padding: 5px;
+    padding-left: 0px;
+
+}
+
+.box form input[type="text"],
+.box form textarea,
+.box form select{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.box form select{
+    width: 100px;
+    padding: 5px;
+}
+
+.box form input[type="submit"],
+.box form input[type="buttom"],
+.box form button{
+    padding: 10px;
+    margin-top: 5px;
+    background:#20ca59;
+    border: 1px solid #444;
+    color: white;
+    transition: 300ms all;
+}
+
+.rojo{
+    color: red;
+    box-shadow: 0px 0px 4px black;
+}
+
+.message{
+padding: 20px;
+background: green;
+color: white;
+text-align: center;
+margin-bottom: 10px;
+
+}
+
+.box form input[type="submit"]:hover,
+.box form input[type="buttom"]:hover,
+.box form button:hover{
+    cursor: pointer;
+    background: #0c662a ;
+}
+
+.title{
+    color: #444;
+    letter-spacing: 1px;
+    font-size: 30px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+/*************Estilo de los articulos**********/
+.article-item{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    clear: both;
+}
+/*************Estilo de las imágenes en listar articulos**********/
+.article-item .image{
+    width: 200px;
+    height: 200px;
+    float: left;
+    overflow: hidden;
+}
+
+.article-item .image img{
+    height: 200px;
+}
+
+.article-item .data{
+    float: left;
+    padding: 15px;
+    padding-top: 0px;
+}
+.article-item h2{
+    display: block;
+    font-size: 25px;
+    color: #333;
+    margin-bottom: 10px;
+}
+.article-item span.date{
+    display: block;
+    font-size: 15px;    
+    color: gray;
+    margin-bottom: 10px;
+}
+.btn{
+    padding: 10px;
+    background: rgb(207, 48, 48);
+    color: white;
+    border: 1px solid black;
+    display: block;
+    margin-top: 15px;
+    width: 100px;
+    text-align: center;
+}
+
+
+/*************Estilo del footer**********/
+footer{
+    width: 1250px;
+    background-color: #0033a1;
+    border: 1px solid #fcfcfd;
+    color: #ffffff;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: 0px 0px 20px #898c8d;
+}

@@ -1,0 +1,14 @@
+{% extends 'layouts/layout.html' %}
+
+{% block title %} {{category.name}} {% endblock %}
+
+{% block content %}
+    <h1 class="title">{{category.name}}</h1>
+
+    <p>{{category.description}}</p>
+
+    <!--{% include 'articles/articles.html' %}-- Hace lo mismo que la de abajo-->
+    <!--{% include 'articles/articles.html' with articles=articles %}-- Hace lo mismo que la de arriba-->
+    <!--{% include 'articles/articles.html' with articles=category.article_set.all %}-- Hace lo mismo que las dos línea de arriba-->
+    {% include 'articles/articles.html' with articles=category.articles.all %} <!--Hace lo mismo que todas las anteriores-->
+{% endblock %}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table,th,td{
+            border: 1px solid black;
+        }
+    </style> 
+    <title>Mi primera Web</title>
+</head>
+<body>
+    <h1>Título de mi WEB</h1>
+    <h2>Bienvenidos a mi WEB</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed magna at massa congue placerat. Fusce ultricies consequat orci nec faucibus. Suspendisse commodo non tortor dapibus cursus. Ut ex velit, mollis sit amet aliquam ut, iaculis et dolor. Nullam neque mi, sollicitudin at lobortis vel, faucibus in diam. Sed interdum quis mauris et consectetur. Aenean ac lacinia nisl.</p>
+    <p>Fusce a cursus diam, a mattis sapien. Fusce a mauris eget erat suscipit venenatis vitae ut magna.</br> </br> Sed iaculis vestibulum ex, vel ornare sem laoreet vitae. Donec non enim mi. Donec vel neque tristique, feugiat lacus ut, <span style="color:blue">consequat turpis. Aenean massa magna</span>, lobortis in vehicula non, dignissim eget nunc. Praesent finibus ultrices lorem vel tempus. Fusce pellentesque sapien ac faucibus finibus. Praesent ut scelerisque felis. Ut maximus blandit vestibulum. Nam vel ex at lorem placerat consequat.</p>
+    
+    <p>Suspendisse rhoncus ut sapien quis tincidunt. Ut id est nec turpis vestibulum tincidunt. Pellentesque et diam at est ornare dapibus. Aenean vitae enim quis ligula blandit imperdiet. Nunc accumsan, mauris sit amet vestibulum tristique, diam nunc euismod orci, a hendrerit risus ex non ex. Praesent dictum ligula et malesuada mattis.</p>
+    <p>Aliquam tempor felis eu augue finibus, a rutrum arcu semper. </br>Vestibulum eu placerat risus. <a target="_blank" href="https://es.wikipedia.org/wiki/Vest%C3%ADbulo">Vestibulum</a> sit amet est mollis, maximus turpis et, iaculis turpis. Pellentesque ligula orci, fringilla eget urna vitae, malesuada ornare lectus. </p>
+    <hr/>
+
+        <h2>Imagenes en HTML</h2>
+        <img src="imagenes/Osopolar.jpg" alt="Imagen de knut" title="Foto de oso polar" width="190" height="150"/>
+
+
+    <hr/>
+    <h3>Tercer encabezado</h3>
+    <p>ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Ut sed magna at massa congue placerat. Fusce ultricies consequat orci nec faucibus. Suspendisse commodo non tortor dapibus cursus. <em>ex velit, mollis sit amet aliquam ut, iaculis et dolor</em>. Nullam neque mi, at lobortis vel, <span id="resaltado" class = "rojo amarillo">in diam. Sed interdum quis mauris et consectetur</span>. Aenean ac lacinia nisl.
+    <blockquote>Integer eget tortor libero. Vestibulum euismod, lorem vel ullamcorper condimentum, risus orci pulvinar orci, vel hendrerit felis lorem quis nisl. Nunc vitae metus blandit, aliquam quam a, mollis lacus. Praesent vehicula finibus bibendum. Morbi pharetra ipsum ut ante cursus tempor. Suspendisse vitae mollis est, ut commodo lorem. Vivamus pulvinar imperdiet tincidunt. </blockquote>
+    </p>
+
+    <h3>Formulario</h3>
+    <form action="/formulario" method="POST">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre"/>
+        <br>
+        <label for="descripcion">Descripción</label>
+        <textarea cols="25" rows="10" id="descripcion" name="descripcion" placeholder="Ingresa una descripción"></textarea>
+        <br>
+        <input type="radio" name="genero" value="hombre"> Hombre </br>
+        <input type="radio" name="genero" value="hombre"> Mujer </br>
+        <input type="radio" name="genero" value="hombre"> Nada </br>
+
+        <select>
+            <option value="hombre">Hombre</option>
+            <option value="mujer">Mujer</option>
+            <option value="nada">Nada</option>
+        </select>
+        <button type="submit">Enviar</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    <h3>Listado de frutas</h3>
+    <ul>
+        <li>Manzana
+            <ul>
+                <li>Roja</li>
+                <li>Verde</li>
+                <li>Amarilla</li>
+            </ul>
+        </li>
+        <li>Naranja</li>
+        <li>pera</li>
+        <li>Sandia</li>
+    </ul>
+
+    <ol>
+        <li>Elemento1</li>
+        <li>Elemento2</li>
+        <li>Elemento3</li>
+        <li>Elemento4</li>
+        <li>Elemento5</li>
+        <li value="10">Elemento6</li>
+        <li>Elemento7</li>
+        <li>Elemento8</li>
+        <li>Elemento9</li>
+        <li>Elemento10</li>
+        <li>Elemento11</li>
+        <li>Elemento12</li>
+        <li>Elemento13</li>
+        <li>Elemento14</li>
+        <li>Elemento15</li>
+        <ol>
+            <li style="list-style-type: lower-alpha;">Subelemento1</li>
+            <li style="list-style-type: lower-roman;">Subelemento2</li>
+            <li style="list-style-type: lower-greek;" >Subelemento3</li>
+            <li style="list-style-type: lower-latin;">Subelemento4</li>
+            <li style="list-style-type: lower-alpha;">Subelemento4</li>            
+        </ol>
+        <li>Elemento16</li>
+        <li>Elemento17</li>
+        <li>Elemento18</li>
+        <li>Elemento19</li>
+        <li>Elemento20</li>
+    </ol>
+
+    <h3>Tablas</h3>
+    <table style="width: 500px;">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>País</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Eric</td>
+                <td>Márquez</td>
+                <td>México</td>
+            </tr>
+            <tr>
+                <td>Juan</td>
+                <td>Rivera</td>
+                <td>México</td>
+            </tr>
+            <tr>
+                <td>Ricardo</td>
+                <td>Buendía</td>
+                <td>México</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <td colspan="3" align="center">
+                Desarrollo Web
+            </td>
+        </tfoot>
+    </table>
+
+</body>
+</html>

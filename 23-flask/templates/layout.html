@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}| Aprendiendo Flask{% endblock %}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+    <!--Cabezara de la página-->
+    <header>
+        <div id="logotipo">
+            <img src="{{ url_for('static', filename = 'img/flask2.png') }}"/>
+            
+            <h1>Flask | emarquez</h1>
+        </div>       
+    </header>
+    <!--Barra de menu manejada con instrucciones for-->
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Inicio</a>
+            </li>
+            <li>
+                <a href="{{url_for('crear_coche')}}">Crear coche</a>
+            </li>
+            <li>
+                <a href="{{url_for('coches')}}">Listado de coches</a>
+            </li>
+            <li>
+                <a href="{{url_for('informacion')}}">Información</a>
+            </li>
+            <li>
+                <a href="{{url_for('contacto')}}">Contacto</a>
+            </li>
+            <li>
+                <a href="{{url_for('lenguajes')}}">Lenguajes</a>
+            </li>
+        </ul>
+    </nav>
+    <!--Efecto 3D por debajo de la barra de menú-->
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+    </div>  
+
+    <div id="content">
+        <div class="box">
+            {%block content%}
+                <!--Código que viene de templates-->
+                <strong>Contenido original del layout </strong>
+            {%endblock%}
+        </div>
+        
+    </div>
+    <footer>
+        Master en Python &copy; | {{now.day}} {{now.month}} {{now.year}}
+    </footer>
+
+</body>
+</html>

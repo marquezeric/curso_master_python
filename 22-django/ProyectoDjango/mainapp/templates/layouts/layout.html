@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {%block title%}
+            <!--Título de cada página-->
+        {%endblock%}
+        | Eric Márquez
+    </title>
+    
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"/>
+</head>
+
+<body>
+
+    <!--Cabezara de la página-->
+    <header>
+        <div id="logotipo">
+            <!--Logotipo BC&B-->
+            <img src="{% static 'images/BCB.jpg' %}"/>
+            <!--<img src="{% static 'images/logo.png' %}"/>-->
+            <h1>Eric Márquez</h1>
+        </div>
+        
+    </header>
+
+<!--Barra de menu manejada con instrucciones for-->
+
+    <nav>
+        <ul>
+            <li>
+                <a href="{% url 'index' %}">Inicio</a>
+            </li>
+<!--Validación para mostrar menus-->
+            {% if user.email %}
+
+                <li>
+                    <a href="{% url 'Listado_articulos' %}">Categorías</a>
+                    <ul>
+                        {% for category in categories %}
+                            <li>
+                                <a href="{% url 'category' category.0 %}">{{category.1}}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% for page in pages%}
+                    <li>    
+                        <a href="{% url 'page' page.2 %}">{{page.1}}</a>
+                    </li>
+                {% endfor %}
+            <li>
+                <a href="{% url 'logout' %}">Cerrar sesión</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="{% url 'register' %}">Registro</a>
+            </li>
+            <li>
+                <a href="{% url 'login' %}">Login</a>
+            </li>
+            {% endif %}
+        </ul>    
+    </nav>
+<!--Efecto 3D por debajo de la barra de menú-->
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+    </div>  
+
+    <div id="content">
+        <div class="box">
+            {%block content%}
+                <!--Código que viene de templates-->
+                <strong>Contenido original del layout </strong>
+            {%endblock%}
+        </div>
+        
+    </div>
+    <footer>
+        Master en Python &copy;  {% now "d/m/Y"  %}
+    </footer>
+</body>
+
+</html>

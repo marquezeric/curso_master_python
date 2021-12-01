@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{%block title%} Pagina de pruebas {%endblock%}
+
+{%block content%}
+
+<h1 class="title">Pagina de mi web</h1>
+<p>{{"Creado por Eric Márquez Salas"}}</p>
+<p>{{"Master of Python" | cut:"of"}}</p>  <!--Aplicando filtro para quitar | cut: "Py" -->
+
+<p>{{texto | default:"Desarrollo de Software"}}</p>
+<p>{{lenguajes | first}}</p>  <!--Aplicando filtro | first -->
+<p>{{lenguajes | last}}</p>  <!--Aplicando filtro | first -->
+<p>{{lenguajes | join:', '}}</p>  <!--Aplicando filtro | join: ', ' -->
+<p>{{lenguajes | length}}</p>  <!--Aplicando filtro | length   Cuenta los elemtos en mi lista lenguajes -->
+<p>{{lenguajes | upper}}</p>  <!--Aplicando filtro | upper   Los cambia a mayúsculas -->
+<p>{{lenguajes | lower}}</p>  <!--Aplicando filtro | lower   Los cambia a minúsculas -->
+<p>{{lenguajes | random}}</p>  <!--Aplicando filtro | random   toma valores aleatorios de mi lista -->
+<p>{{"<h1>Que no importa de nada ser un genio en la programación si nadie dice: <strong>él es una buena persona.</stron></h1>" | striptags}}</p>
+<p>{{"<h1>Que no importa de nada ser un genio en la programación si nadie dice: <strong>él es una buena persona.</stron></h1>" | striptags | wordcount}}</p>  <!--Mezclar filtros-->
+<!--Filtro personalizado-->
+{% load filters %}
+{{"Eric Márquez Salas" |saludo|safe}}
+
+{%endblock%}

@@ -1,0 +1,14 @@
+{%extends 'layout.html'%}
+
+{%block title%} Hola Mundo {%endblock%}
+
+
+{%block content%}
+
+<!--Herencia de bloques y agregarlo al bloque-->
+{{block.super}}
+
+<h1 class="title">Hola Estamos Aprendiendo Django</h1>
+<h3>Soy Eric Márquez Salas</h3>
+
+{%endblock%}
