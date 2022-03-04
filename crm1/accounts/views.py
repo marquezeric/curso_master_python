@@ -1,9 +1,11 @@
 from http.client import HTTPResponse
+from multiprocessing import context
 #from multiprocessing import context
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 # Create your views here.
-from .models import Customer, Order, Product  #  Importamos nuestros modelos que deseamos trabajar
+from .forms import OrderForm
+from .models import Customer, Order, Product, Order #  Importamos nuestros modelos que deseamos trabajar
 
 def home(request):
     orders = Order.objects.all()
@@ -26,12 +28,24 @@ def products(request):
     return render(request, 'accounts/products.html', {'products':products})
     #return HttpResponse('products')
 
-def customer(request,pk_test):
+def customer(request, pk_test):
     customer = Customer.objects.get(id=pk_test)
 
     orders = customer.order_set.all()
+    order_count = orders.count()
 
-    context = {'customer': customer, 'orders': orders}
-    return render(request, 'accounts/customer.html')
+    context = {'customer': customer, 'orders': orders, 'order_count': order_count}
+    return render(request, 'accounts/customer.html', context)
     #return HttpResponse('customer')
 
+def createOrder(request):
+    form = OrderForm()
+    if request.method == "POST":
+        #print('Printing POST:', request.POST)
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+
+    context= {'form':form}
+    return render(request, 'accounts/order_form.html', context)
