@@ -5,5 +5,11 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('products/', views.products, name="products"),
     path('customer/<str:pk_test>/', views.customer, name="customer"),
-    path('create_order/', views.createOrder, name="create_order")
+    
+    path('create_order/', views.createOrder, name="create_order"),
+    path('updateOrder/<int:pk>/', views.updateOrder, name="update_order"),
+    path('deleteOrder/<int:pk>/', views.deleteOrder, name="delete_order"),
+
+    #path('frecuencias/edit/<int:pk>/',editfrecuencia.as_view(), name='edit_frec'),
+
 ]

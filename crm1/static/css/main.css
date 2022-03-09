@@ -10,14 +10,14 @@
     height: 50px;
 }*/
 body{
-        background-color: #ebeff5;
+        background-color: #66789938;
     }
 #total-orders{
-            background-color: #4cb4c7;
+            background-color: #126fe9;
         }
 #orders-delivered{
-            background-color: #7abecc;
+            background-color: #4b65d4;
         }
 #orders-pending{
-            background-color: #7CD1C0;
+            background-color: #231fe7;
         }

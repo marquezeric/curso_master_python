@@ -1,9 +1,5 @@
 {% extends 'accounts/main.html' %}
-
-
 {% block content %}
-
-
 {% include 'accounts/status.html' %}
 
 
@@ -11,19 +7,20 @@
 
 <div class="row">
 	<div class="col-md-5">
-		<h5>CUSTOMERS:</h5>
+		<h5>CLIENTES:</h5>
 		<hr>
 		<div class="card card-body">
 			<a class="btn btn-primary  btn-sm btn-block" href="">Create Customer</a>
 			<table class="table table-sm">
 				<tr>
+					<th>View</th>
 					<th>Customer</th>
 					<th>Phone</th>
 				</tr>
 
 				{% for customer in customers %}
 					<tr>
-						<td><a class="btn btn-sm btn-info" href="{% url 'customer' customer.id %}">View</a>
+						<td><a class="btn btn-sm btn-info" href="{% url 'customer' customer.id %}">View</a></td>
 						<td>{{customer.name}}</td>
 						<td>{{customer.phone}}</td>
 					</tr>
@@ -34,12 +31,13 @@
 	</div>
 
 	<div class="col-md-7">
-		<h5>LAST 5 ORDERS</h5>
+		<h5>ASUNTOS RECIENTES</h5>
 		<hr>
 		<div class="card card-body">
 			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'create_order' %}">Create Order</a>
 			<table class="table table-sm">
 				<tr>
+					<th>id</th>
 					<th>Product</th>
 					<th>Date Orderd</th>
 					<th>Status</th>
@@ -49,11 +47,15 @@
 
 				{% for orders in orders %}
 				    <tr>
+						<td>{{oders.id}}</td>
 					    <td>{{orders.product}}</td>
 						<td>{{orders.date_created}}</td>
 						<td>{{orders.status}}</td>
-						<td><a class ="btn btn-sm btn-info" href="">Update</a></td>
-						<td><a class ="btn btn-sm btn-danger" href="">Delete</a></td>
+						
+
+						<td><a class ="btn btn-sm btn-info" href="{% url 'update_order' orders.id %}"> Update</a></td>
+						<td><a class ="btn btn-sm btn-danger" href="{% url 'delete_order' orders.id %}">Delete</a></td>
+
 					</tr>
 				{% endfor %}
 			</table>
@@ -61,6 +63,4 @@
 	</div>
 
 </div>
-
-
 {% endblock %}
