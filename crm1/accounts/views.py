@@ -1,8 +1,9 @@
+from multiprocessing import context
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import *
 #from .models import Customer, Order, Product #  Importamos nuestros modelos que deseamos trabajar
-from .forms import OrderForm
+from .forms import CustomerForm, OrderForm
 
 def home(request):
     orders = Order.objects.all()
@@ -70,3 +71,13 @@ def deleteOrder(request, pk):
 
     context = {'item':order}
     return render(request, 'accounts/delete.html', context)
+
+def createCustomer(request):
+    form = CustomerForm()
+    if request.method == 'POST':
+        form = CustomerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    context = {'form':form}
+    return render(request, 'accounts/customer_form.html', context)

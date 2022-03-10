@@ -7,8 +7,9 @@ urlpatterns = [
     path('customer/<str:pk_test>/', views.customer, name="customer"),
     
     path('create_order/', views.createOrder, name="create_order"),
-    path('updateOrder/<int:pk>/', views.updateOrder, name="update_order"),
-    path('deleteOrder/<int:pk>/', views.deleteOrder, name="delete_order"),
+    path('updateOrder/<str:pk>/', views.updateOrder, name="update_order"),
+    path('deleteOrder/<str:pk>/', views.deleteOrder, name="delete_order"),
+    path('createCustomer/', views.createCustomer, name="create_customer")
 
     #path('frecuencias/edit/<int:pk>/',editfrecuencia.as_view(), name='edit_frec'),
 
