@@ -3,11 +3,17 @@
 {% block content %}
 <br>
 
-<form action="" method="POST">
-    {% csrf_token %}
-    {{form}}
+<div class="row">
+    <div>
+        <div>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form}}
 
-    <input type="submit" name="Submit">
-</form>
+                <input type="submit" name="Submit">
+            </form>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
