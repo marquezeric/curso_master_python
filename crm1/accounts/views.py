@@ -8,6 +8,16 @@ from .forms import CustomerForm, OrderForm
 from .filters import OrderFilter
 
 
+def registerPage(request):
+    context = {}
+    return render(request, 'accounts/register.html', context)
+
+
+def loginPage(request):
+    context = {}
+    return render(request, 'accounts/login.html', context)
+
+
 def home(request):
     orders = Order.objects.all()
     customers = Customer.objects.all()
@@ -24,10 +34,12 @@ def home(request):
     #print(context)
     return render(request, 'accounts/dashboard.html', context)
 
+
 def products(request):
     products = Product.objects.all()
     return render(request, 'accounts/products.html', {'products':products})
     #return HttpResponse('products')
+
 
 def customer(request, pk_test):
     customer = Customer.objects.get(id=pk_test)
@@ -41,6 +53,7 @@ def customer(request, pk_test):
     context = {'customer': customer, 'orders': orders, 'order_count': order_count, 'myFilter': myFilter}
     return render(request, 'accounts/customer.html', context)
     #return HttpResponse('customer')
+
 
 def createOrder(request, pk):
     OrderFormSet = inlineformset_factory(Customer, Order, fields=('product', 'status'), extra=10)
@@ -57,6 +70,7 @@ def createOrder(request, pk):
 
     context= {'formset':formset}
     return render(request, 'accounts/order_form.html', context)
+
 
 def updateOrder(request, pk):
 
@@ -81,6 +95,7 @@ def deleteOrder(request, pk):
 
     context = {'item':order}
     return render(request, 'accounts/delete.html', context)
+
 
 def createCustomer(request):
     form = CustomerForm()
