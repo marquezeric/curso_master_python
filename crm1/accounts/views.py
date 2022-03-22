@@ -2,14 +2,22 @@ from multiprocessing import context
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.forms import inlineformset_factory
-from .models import *
+from django.contrib.auth.forms import UserCreationForm
 #from .models import Customer, Order, Product #  Importamos nuestros modelos que deseamos trabajar
-from .forms import CustomerForm, OrderForm
+from .models import *
+from .forms import CustomerForm, OrderForm, CreateUserForm
 from .filters import OrderFilter
 
 
 def registerPage(request):
-    context = {}
+    form = CreateUserForm()
+
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    context = {'form':form}
     return render(request, 'accounts/register.html', context)
 
 
