@@ -6,14 +6,16 @@ from django.contrib.auth.models import User  #  Móldulo para el login y registe
 from django import forms
 #  Creación de un Form con Python
 
-class OrderForm(ModelForm):
-    class Meta:
-        model = Order
-        fields = '__all__'
 
 class CustomerForm(ModelForm):
     class Meta:
         model = Customer
+        fields = '__all__'
+        exclude = ['user']
+
+class OrderForm(ModelForm):
+    class Meta:
+        model = Order
         fields = '__all__'
 
 

@@ -8,7 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from accounts.decorators import unauthenticated_user
 #from .models import Customer, Order, Product #  Importamos nuestros modelos que deseamos trabajar
 from .models import *
-from .forms import CustomerForm, OrderForm, CreateUserForm
+from .forms import OrderForm, CreateUserForm, CustomerForm
 from .filters import OrderFilter
 from .decorators import unauthenticated_user, allowed_users, admin_only
 from django.contrib.auth import authenticate, login, logout
@@ -26,12 +26,6 @@ def registerPage(request):
         if form.is_valid():
             user = form.save()
             username = form.cleaned_data.get('username')
-
-            group = Group.objects.get(name='customer')
-            user.groups.add(group)
-            Customer.objects.create(
-                user=user,
-            )
 
             messages.success(request, 'La cuenta ha sido creada para ' + username)
 
@@ -99,9 +93,17 @@ def userPage(request):
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
-#@allowed_users(allowed_roles=['admin'])
-def accountsSettings(request):
-    context = {}
+def accountSettings(request):
+    customer = request.user.customer
+    form = CustomerForm(instance=customer)
+
+    if request.method == 'POST':
+        form = CustomerForm(request.POST, request.FILES,instance=customer)
+        if form.is_valid():
+            form.save()
+
+
+    context = {'form' : form}
     return render(request, 'accounts/account_settings.html', context)
 
 @login_required(login_url='login')
